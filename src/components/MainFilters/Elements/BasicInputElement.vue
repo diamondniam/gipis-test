@@ -10,7 +10,7 @@ export default {
       <slot name="title"></slot>
     </div>
 
-    <div class="relative z-[5] flex items-center justify-between opacity-70 transition-opacity hover:opacity-100" v-if="$slots.options || $slots.required">
+    <div class="relative flex items-center justify-between opacity-70 transition-opacity hover:opacity-100" v-if="$slots.options || $slots.required">
       <select v-if="$slots.required" class="select-required px-2">
         <slot name="required"></slot>
       </select>
