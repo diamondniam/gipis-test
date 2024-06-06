@@ -10,14 +10,16 @@ export default {
       <slot name="title"></slot>
     </div>
 
-    <div class="relative flex items-center justify-between opacity-70 transition-opacity hover:opacity-100" v-if="$slots.options || $slots.required">
-      <select v-if="$slots.required" class="select-required px-2">
+    <div class="relative h-[40px] rounded-[10px] border border-black/[.2] flex items-center justify-between opacity-70 transition-opacity hover:opacity-100" v-if="$slots.options || $slots.required">
+      <select v-if="$slots.required" class="select-required w-full px-2 outline-none">
         <slot name="required"></slot>
       </select>
 
-      <select v-else class="select px-2">
+      <select v-else class="select px-2 w-full outline-none">
         <slot name="options"></slot>
       </select>
+
+      <img class="w-2 rotate-90 mr-2" src="../../../assets/right-arrow.png" alt="">
     </div>
 
     <div v-if="$slots.date" class="date select flex items-center justify-between opacity-70 transition-opacity hover:opacity-100">
