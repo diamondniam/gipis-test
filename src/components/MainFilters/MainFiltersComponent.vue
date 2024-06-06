@@ -9,7 +9,16 @@ import BlockRow from "@/components/MainFilters/Elements/Block/BlockRow.vue";
 
 export default {
   name: "MainFilters",
-  components: {BlockRow, Block, Tag, SortSelect, Table, Input, ButtonSelect }
+  components: {BlockRow, Block, Tag, SortSelect, Table, Input, ButtonSelect },
+  methods: {
+    getRandomNumbers(number) {
+      let someData = []
+      for (let i = 0; i < number; i++) {
+        someData.push(Math.floor(Math.random() * number));
+      }
+      return someData
+    }
+  },
 }
 </script>
 
@@ -18,29 +27,26 @@ export default {
     <Block>
       <Input>
         <template #title>Country*</template>
-        <template #options>
-          <option value="" selected disabled hidden>Not selected</option>
-          <option>Australia</option>
-          <option>Russia</option>
+        <template #required>
+          <option value="0" selected disabled hidden>Not selected</option>
+          <option v-for="option in getRandomNumbers(10)" :key="option">{{ option }}</option>
         </template>
       </Input>
 
       <BlockRow>
         <Input>
           <template #title>Type IP rights*</template>
-          <template #options>
-            <option value="" selected disabled hidden>Not selected</option>
-            <option>Australia</option>
-            <option>Russia</option>
+          <template #required>
+            <option value="0" selected disabled hidden>Not selected</option>
+            <option v-for="option in getRandomNumbers(8)" :key="option">{{ option }}</option>
           </template>
         </Input>
 
         <Input>
           <template #title>Current status</template>
           <template #options>
-            <option value="" selected disabled hidden>Not selected</option>
-            <option>Australia</option>
-            <option>Russia</option>
+            <option value="0" selected disabled hidden>Not selected</option>
+            <option v-for="option in getRandomNumbers(5)" :key="option">{{ option }}</option>
           </template>
         </Input>
       </BlockRow>
@@ -58,9 +64,8 @@ export default {
         <Input>
           <template #title>Search by number type</template>
           <template #options>
-            <option value="" selected disabled hidden>Not selected</option>
-            <option>Australia</option>
-            <option>Russia</option>
+            <option value="0" selected disabled hidden>Not selected</option>
+            <option v-for="option in getRandomNumbers(4)" :key="option">{{ option }}</option>
           </template>
         </Input>
 
@@ -74,9 +79,8 @@ export default {
         <Input>
           <template #title>Search by name type</template>
           <template #options>
-            <option value="" selected disabled hidden>Not selected</option>
-            <option>Australia</option>
-            <option>Russia</option>
+            <option value="0" selected disabled hidden>Not selected</option>
+            <option v-for="option in getRandomNumbers(12)" :key="option">{{ option }}</option>
           </template>
         </Input>
 
@@ -94,18 +98,16 @@ export default {
         <Input>
           <template #title>Payment method</template>
           <template #options>
-            <option value="" selected disabled hidden>Not selected</option>
-            <option>Australia</option>
-            <option>Russia</option>
+            <option value="0" selected disabled hidden>Not selected</option>
+            <option v-for="option in getRandomNumbers(5)" :key="option">{{ option }}</option>
           </template>
         </Input>
 
         <Input>
           <template #title>Payment status</template>
           <template #options>
-            <option value="" selected disabled hidden>Not selected</option>
-            <option>Australia</option>
-            <option>Russia</option>
+            <option value="0" selected disabled hidden>Not selected</option>
+            <option v-for="option in getRandomNumbers(3)" :key="option">{{ option }}</option>
           </template>
         </Input>
       </BlockRow>
@@ -118,29 +120,26 @@ export default {
         <Input>
           <template #title>Order status</template>
           <template #options>
-            <option value="" selected disabled hidden>Not selected</option>
-            <option>Australia</option>
-            <option>Russia</option>
+            <option value="0" selected disabled hidden>Not selected</option>
+            <option v-for="option in getRandomNumbers(5)" :key="option">{{ option }}</option>
           </template>
         </Input>
 
         <Input>
           <template #title>Renewal status</template>
           <template #options>
-            <option value="" selected disabled hidden>Not selected</option>
-            <option>Australia</option>
-            <option>Russia</option>
+            <option value="0" selected disabled hidden>Not selected</option>
+            <option v-for="option in getRandomNumbers(9)" :key="option">{{ option }}</option>
           </template>
         </Input>
       </BlockRow>
 
-      <BlockRow>
+      <BlockRow class="max-md:flex-col gap-y-0">
         <Input>
           <template #title>Filter by date</template>
           <template #options>
-            <option value="" selected disabled hidden>Not selected</option>
-            <option>Australia</option>
-            <option>Russia</option>
+            <option value="0" selected disabled hidden>Not selected</option>
+            <option v-for="option in getRandomNumbers(3)" :key="option">{{ option }}</option>
           </template>
         </Input>
 
@@ -187,32 +186,32 @@ export default {
       </BlockRow>
     </Block>
 
-    <Block class="flex gap-x-[10%] items-center justify-start max-md:flex-col max-md:items-start">
+    <Block class="flex gap-x-[10%] items-start justify-start max-md:flex-col">
       <template #name>Сортировка</template>
 
-      <BlockRow class="max-md:flex-col max-md:mt-2 justify-between max-md:gap-y-0">
+      <BlockRow class="max-md:flex-col max-md:mt-2 justify-between flex-wrap gap-0">
         <SortSelect>
-          <option>Сперва новые</option>
+          <option value="0">Сперва новые</option>
           <option>Сперва старые</option>
         </SortSelect>
 
         <SortSelect>
-          <option>Только необработанные</option>
+          <option value="0">Только необработанные</option>
           <option>Сперва старые</option>
         </SortSelect>
 
         <SortSelect>
-          <option>Есть в клиентах</option>
+          <option value="0">Есть в клиентах</option>
           <option>Сперва старые</option>
         </SortSelect>
 
         <SortSelect>
-          <option>Есть в поставщиках</option>
+          <option value="0">Есть в поставщиках</option>
           <option>Сперва старые</option>
         </SortSelect>
 
         <SortSelect>
-          <option>Есть в группе поставщиков</option>
+          <option value="0">Есть в группе поставщиков</option>
           <option>Сперва старые</option>
         </SortSelect>
       </BlockRow>

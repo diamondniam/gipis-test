@@ -6,12 +6,16 @@ export default {
 
 <template>
   <div class="w-full h-full text-black">
-    <div class="ml-4 bg-white relative top-2 px-2 inline w-auto z-10">
+    <div class="ml-4 bg-white relative top-2 px-2 inline w-auto z-10 max-md:ml-2">
       <slot name="title"></slot>
     </div>
 
-    <div class="select flex items-center justify-between opacity-70 transition-opacity hover:opacity-100" v-if="$slots.options">
-      <select class="px-2">
+    <div class="relative z-[5] flex items-center justify-between opacity-70 transition-opacity hover:opacity-100" v-if="$slots.options || $slots.required">
+      <select v-if="$slots.required" class="select-required px-2">
+        <slot name="required"></slot>
+      </select>
+
+      <select v-else class="select px-2">
         <slot name="options"></slot>
       </select>
     </div>

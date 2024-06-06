@@ -5,7 +5,7 @@ import Title from "./components/Title/TitleComponent.vue";
 </script>
 
 <template>
-  <div class="container w-full p-3 max-w-full">
+  <div class="container w-full p-3 max-w-none">
     <Title />
     <MainFilters />
     <Apply />
